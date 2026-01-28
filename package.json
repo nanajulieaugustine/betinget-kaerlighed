@@ -1,0 +1,25 @@
+{
+  "name": "betinget-kaerlighed",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.17.12",
+    "@react-hooks-hub/use-click-outside": "^1.0.0",
+    "motion": "^12.25.0",
+    "next": "16.1.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-icons": "^5.5.0",
+    "react-use": "^17.6.0",
+    "zustand": "^5.0.10"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4"
+  }
+}

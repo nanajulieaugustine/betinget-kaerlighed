@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3f3f3;
+  --foreground: #2a2a2a;
+  --content-width: max(50px, 50% - 40rem / 2);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: sf pro, -apple-system, BlinkMacSystemFont
+}
+
+section{
+  padding-inline: var(--content-width);
+}
+
+h1{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+    margin-bottom: 0.5rem; 
+}
+
+h2{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 0.75rem; 
+}
+
+h3{
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+h4{
+  font-size: 1.25rem;
+  line-height: 1.2rem;
+  margin-bottom: 0.5rem; 
+}
+
+p{
+  margin-bottom: 1rem;
+  line-height: 1.75rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+.li{
+  margin-bottom: 0.5rem;
+  text-indent: 0.5rem;
+  list-style-type: disc;
+}
+
+.a{
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size:small;
+  margin-bottom: 0.5rem;
+  &:hover{
+    font-weight: 600;
+    transition:all 0.3s ease-in-out;
+  }
+}
