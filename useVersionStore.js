@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 const useVersionStore = create(
   persist(
@@ -47,6 +47,10 @@ const useVersionStore = create(
 
     {
       name: "version-storage",
+      // kun brug localStorage i browser
+      storage: createJSONStorage(() =>
+        typeof window !== "undefined" ? window.localStorage : undefined
+      ),
     }
   )
 );
