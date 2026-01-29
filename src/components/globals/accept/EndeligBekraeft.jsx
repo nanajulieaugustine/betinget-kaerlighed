@@ -7,6 +7,12 @@ const EndeligBekraeft = ({ onClose }) => {
   const [closing, setClosing] = useState(false);
 
   return (
+    <>
+      <div
+        onClick={setClosing}
+        className="fixed inset-0 backdrop-blur-md z-40"
+        aria-hidden="true"
+      />
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
       animate={closing ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
@@ -15,7 +21,7 @@ const EndeligBekraeft = ({ onClose }) => {
       onAnimationComplete={() => {
         if (closing) onClose();
       }}
-      className="fixed top-50 left-130 rounded-4xl h-100 w-100 flex flex-col p-10 items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-xs"
+      className="fixed top-50 left-130 z-100 rounded-4xl h-100 w-100 flex flex-col p-10 items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-lg"
       onClick={(e) => e.stopPropagation()}
     >
       <IoIosClose
@@ -37,6 +43,7 @@ const EndeligBekraeft = ({ onClose }) => {
         </a>
         </button>
     </motion.div>
+        </>
   );
 }
 

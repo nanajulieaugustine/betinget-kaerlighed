@@ -7,6 +7,12 @@ const ErrorVaelgEn = ({ onClose }) => {
   const [closing, setClosing] = useState(false);
 
   return (
+    <>
+        <div
+        onClick={setClosing}
+        className="fixed inset-0 backdrop-blur-md z-40"
+        aria-hidden="true"
+      />
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
       animate={closing ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
@@ -15,7 +21,7 @@ const ErrorVaelgEn = ({ onClose }) => {
       onAnimationComplete={() => {
         if (closing) onClose();
       }}
-      className="fixed top-50 left-130 rounded-4xl h-100 w-100 flex flex-col p-10 items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-xs"
+      className="fixed top-50 left-130 z-100 rounded-4xl h-100 w-100 flex flex-col p-10 items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-lg"
       onClick={(e) => e.stopPropagation()}
     >
       <IoIosClose
@@ -30,6 +36,7 @@ const ErrorVaelgEn = ({ onClose }) => {
       <strong>Du skal vælge mindst én relation for at bekræfte.</strong>
       <button onClick={() => setClosing(true)} className="mt-5 cursor-pointer px-5 py-2 bg-blue-400 hover:bg-blue-600 transition-all duration-300 text-(--background) backdrop-blur-3xl inset-shadow-sm inset-shadow-amber-50 rounded-full">Ok</button>
     </motion.div>
+        </>
   );
 }
 

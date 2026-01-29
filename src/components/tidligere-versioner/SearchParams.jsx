@@ -9,15 +9,6 @@ const SearchParams = () => {
   const searchParams = useSearchParams();
   const [showGik, setShowGik] = useState(false);
   const [showAccept, setShowAccept] = useState(false);
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    // tryk kun på window i effect (kører kun i browser)
-    const onResize = () => setWidth(window.innerWidth);
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
 
   useEffect(() => {
     if (searchParams.get("gik") === "1") {
@@ -50,7 +41,6 @@ const SearchParams = () => {
       </div>
       {showGik && <GikGaltPopUp onClose={() => setShowGik(false)} />}
       {showAccept && <AcceptSome onClose={() => setShowAccept(false)} />}
-      <div>Width: {width}</div>
     </>
   );
 };

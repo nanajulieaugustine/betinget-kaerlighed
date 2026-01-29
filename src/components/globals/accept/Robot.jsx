@@ -83,6 +83,12 @@ const Robot = ({ onClose }) => {
 
   return (
     <>
+      <div
+        onClick={setClosing}
+        className="fixed inset-0 backdrop-blur-md z-40"
+        aria-hidden="true"
+      />
+
     <div className="relative">
       <motion.div ref={formRef}
         initial={{ opacity: 0, scale: 0.5 }}
@@ -92,7 +98,7 @@ const Robot = ({ onClose }) => {
         onAnimationComplete={() => {
           if (closing) onClose();
         }}
-        className="fixed top-50 left-130 rounded-4xl h-100 w-100 flex flex-col p-10 items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-xs"
+      className="fixed top-50 left-130 z-100 rounded-4xl h-100 w-100 flex flex-col p-10 items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
         <h3>Bekræft du ikke er en robot</h3>
