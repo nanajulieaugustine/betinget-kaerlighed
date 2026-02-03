@@ -343,7 +343,7 @@ const Uploads = () => {
           onCancel={handleDeleteCancel}
           />
         )}
-      {selectConfirmed && <EndeligBekraeft onClose={() => setSelectConfirmed(false)} />}
+      {selectConfirmed && <EndeligBekraeft redirectTo = "/" onClose={() => setSelectConfirmed(false)} />}
         {openValgteRelationer && 
         <ValgteRelationer selectedIdsSet={selectedIdsSet} uniqueSelectedByName={uniqueSelectedByName} onClose={()=>closeValgteRelationer(false)} />
         }

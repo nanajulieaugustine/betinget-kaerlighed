@@ -12,7 +12,6 @@ const navItems = [
   { href: "/proeveperiode", label: "Prøveperiode" },
   { href: "/fortrydelsesret", label: "Fortrydelsesret" },
   { href: "/tidligere-versioner", label: "Tidligere versioner" },
-  { href: "/vilkaar", label: "Vilkår" },
 ];
 
 const Header = () => {
