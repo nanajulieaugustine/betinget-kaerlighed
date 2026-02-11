@@ -83,24 +83,26 @@ const Robot = ({ onClose }) => {
 
   return (
     <>
-      <div
-        onClick={setClosing}
-        className="fixed inset-0 backdrop-blur-md z-40"
-        aria-hidden="true"
-      />
+      <div className="fixed inset-0 z-40">
+        <div
+          onClick={setClosing}
+          className="absolute inset-0 backdrop-blur-md"
+          aria-hidden="true"
+        />
 
-    <div className="relative">
-      <motion.div ref={formRef}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={closing ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.5 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        onAnimationComplete={() => {
-          if (closing) onClose();
-        }}
-      className="fixed top-50 left-130 z-100 rounded-4xl h-100 w-100 flex flex-col p-10 items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-lg"
-        onClick={(e) => e.stopPropagation()}
-      >
+        <div className="relative h-full w-full">
+          <motion.div
+            ref={formRef}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={closing ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            onAnimationComplete={() => {
+              if (closing) onClose();
+            }}
+            className="absolute left-1/2 top-1/2 z-50 h-100 w-100 max-h-[90vh] max-w-[90vw] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-4xl p-10 flex flex-col items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
         <h3>Bekræft du ikke er en robot</h3>
         <p className="font-medium">Du bedes definere dine egne terms and conditions for at bekræfte din identitet</p>
         <a href="/tidligere-versioner" className="text-xs a">Se tidligere versioner</a>
@@ -148,25 +150,26 @@ const Robot = ({ onClose }) => {
           }
           .animate-shake { animation: shake 0.3s; }
         `}</style>
-      </motion.div>
+          </motion.div>
 
-      {/* centered animation overlay */}
-      {animation && (
-        <div className="fixed inset-0 z-1000 flex items-center justify-center pointer-events-none">
-          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+          {/* centered animation overlay */}
+          {animation && (
+            <div className="absolute inset-0 z-1000 flex items-center justify-center pointer-events-none">
+              <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
 
-          <div className="relative w-64 h-64 md:w-96 md:h-96 pointer-events-auto">
-            <DotLottieReact
-              className="w-full h-full"
-              src="https://lottie.host/8fc87cab-504c-48f1-a187-0db3ee3543d6/lE8KVCWN5I.lottie"
-              loop
-              autoplay
-            />
-          </div>
+              <div className="relative w-64 h-64 md:w-96 md:h-96 pointer-events-auto">
+                <DotLottieReact
+                  className="w-full h-full"
+                  src="https://lottie.host/8fc87cab-504c-48f1-a187-0db3ee3543d6/lE8KVCWN5I.lottie"
+                  loop
+                  autoplay
+                />
+              </div>
+            </div>
+          )}
         </div>
-      )}
-    </div>
-        {failed && <GikGaltPopUp onClose={() => setFailed(false)} />}
+      </div>
+      {failed && <GikGaltPopUp onClose={() => setFailed(false)} />}
     </>
   );
 }

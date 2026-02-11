@@ -6,7 +6,7 @@ const MobileHeader = ({ navItems = [], activeNav, setActiveNav }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative h-screen bg-(--background)">
+    <div className="relative">
       <button
         aria-expanded={open}
         aria-label="Menu"
@@ -19,18 +19,18 @@ const MobileHeader = ({ navItems = [], activeNav, setActiveNav }) => {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg py-2">
+        <div className="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              <a
-                onClick={() => {
-                  setActiveNav(item.href);
-                  setOpen(false);
-                }}
-                className={`block px-4 py-2 text-sm ${activeNav === item.href ? "font-semibold" : ""}`}
-              >
-                {item.label}
-              </a>
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => {
+                setActiveNav(item.href);
+                setOpen(false);
+              }}
+              className={`block px-4 py-2 text-sm ${activeNav === item.href ? "font-semibold" : ""}`}
+            >
+              {item.label}
             </Link>
           ))}
         </div>

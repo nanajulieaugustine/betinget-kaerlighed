@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
         <header>
           <Header/>
         </header>
-        <main className="py-40">
+        <main className="pt-24 pb-24 lg:pt-36 lg:pb-40">
         {children}
         </main>
       </body>

@@ -36,7 +36,7 @@ const SearchParams = () => {
 
   return (
     <>
-      <div className="px-40">
+      <div className="px-4 sm:px-6 lg:px-12">
         <Uploads />
       </div>
       {showGik && <GikGaltPopUp onClose={() => setShowGik(false)} />}

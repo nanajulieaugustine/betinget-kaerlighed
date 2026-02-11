@@ -6,7 +6,13 @@ import AfvisPopUp from "./AfvisPopUp";
 import useVersionStore from "../../../../useVersionStore";
 import { useRouter } from "next/navigation";
 
-const Accepter = () => {
+const Accepter = ({
+  showAcceptAll = true,
+  showAcceptSome = true,
+  showDecline = true,
+  acceptAllLabel = "Accepter alle",
+  acceptPopupTitle,
+}) => {
   const [authOpen, setAuthOpen] = useState(false);
   const [authOpenSome, setAuthOpenSome] = useState(false);
   const [acceptPopOpen, setAcceptPopOpen] = useState(false);
@@ -46,21 +52,27 @@ const Accepter = () => {
       <div className="fixed inset-x-0 bottom-4 z-50 flex justify-center">
         <div className="w-full max-w-3xl h-16 shadow-xs backdrop-blur-sm inset-shadow-sm inset-shadow-amber-50 rounded-full mx-4 pb-[env(safe-area-inset-bottom)]">
           <div className="flex items-center justify-center gap-8 p-2">
-            <button
-              onClick={handleAcceptClick}
-              className="cursor-pointer px-5 py-2 bg-blue-400 hover:bg-blue-600 transition-all duration-300 text-(--background) backdrop-blur-3xl inset-shadow-sm inset-shadow-amber-50 rounded-full"
-            >
-              Accepter alle
-            </button>
-            <button
-              onClick={handleAcceptSomeClick}
-              className="cursor-pointer border-2 border-(--foreground) px-5 py-2 hover:bg-(--foreground) hover:text-(--background) transition-all duration-300 text(--background) rounded-full"
-            >
-              Accepter valgte
-            </button>
-            <button onClick={() => setDeclined(true)} className="text-xs underline cursor-pointer">
-              Afvis
-            </button>
+            {showAcceptAll && (
+              <button
+                onClick={handleAcceptClick}
+                className="cursor-pointer px-5 py-2 bg-blue-400 hover:bg-blue-600 transition-all duration-300 text-(--background) backdrop-blur-3xl inset-shadow-sm inset-shadow-amber-50 rounded-full"
+              >
+                {acceptAllLabel}
+              </button>
+            )}
+            {showAcceptSome && (
+              <button
+                onClick={handleAcceptSomeClick}
+                className="cursor-pointer border-2 border-(--foreground) px-5 py-2 hover:bg-(--foreground) hover:text-(--background) transition-all duration-300 text(--background) rounded-full"
+              >
+                Accepter valgte
+              </button>
+            )}
+            {showDecline && (
+              <button onClick={() => setDeclined(true)} className="text-xs underline cursor-pointer">
+                Afvis
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -113,7 +125,9 @@ const Accepter = () => {
       {declined && <AfvisPopUp onClose={() => setDeclined(false)} />}
 
       {/* accepter popup (lokal) */}
-      {acceptPopOpen && <AcceptPopUp onClose={() => setAcceptPopOpen(false)} />}
+      {acceptPopOpen && (
+        <AcceptPopUp onClose={() => setAcceptPopOpen(false)} title={acceptPopupTitle} />
+      )}
     </>
   );
 };

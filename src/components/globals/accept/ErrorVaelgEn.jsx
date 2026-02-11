@@ -8,22 +8,24 @@ const ErrorVaelgEn = ({ onClose }) => {
 
   return (
     <>
+      <div className="fixed inset-0 z-40">
         <div
-        onClick={setClosing}
-        className="fixed inset-0 backdrop-blur-md z-40"
-        aria-hidden="true"
-      />
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={closing ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.5 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      onAnimationComplete={() => {
-        if (closing) onClose();
-      }}
-      className="fixed top-50 left-130 z-100 rounded-4xl h-100 w-100 flex flex-col p-10 items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-lg"
-      onClick={(e) => e.stopPropagation()}
-    >
+          onClick={setClosing}
+          className="absolute inset-0 backdrop-blur-md"
+          aria-hidden="true"
+        />
+        <div className="relative h-full w-full">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={closing ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            onAnimationComplete={() => {
+              if (closing) onClose();
+            }}
+            className="absolute left-1/2 top-1/2 z-50 h-100 w-100 max-h-[90vh] max-w-[90vw] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-4xl p-10 flex flex-col items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
       <IoIosClose
         onClick={(e) => {
           e.stopPropagation();
@@ -35,8 +37,10 @@ const ErrorVaelgEn = ({ onClose }) => {
       <p className="font-medium text-red-500">Det er ikke muligt at bekræfte dit valg.</p>
       <strong>Du skal vælge mindst én relation for at bekræfte.</strong>
       <button onClick={() => setClosing(true)} className="mt-5 cursor-pointer px-5 py-2 bg-blue-400 hover:bg-blue-600 transition-all duration-300 text-(--background) backdrop-blur-3xl inset-shadow-sm inset-shadow-amber-50 rounded-full">Ok</button>
-    </motion.div>
-        </>
+          </motion.div>
+        </div>
+      </div>
+    </>
   );
 }
 

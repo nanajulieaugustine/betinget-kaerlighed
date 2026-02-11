@@ -30,7 +30,7 @@ export default function Home() {
               <li className="li" >Inkludere noget ærekrænkende, injurierende, krænkende, stødende, nedsættende, skadeligt, ulovligt, svigagtigt, chikanerende, truende, hadsk, voldeligt, eller indhold, der på anden måde kan være stødende.</li>
             </ul>
            <h3>Ansvarsfraskrivelse</h3>
-            <span className="font-medium">Undgå relationelle misforståelser</span>
+            <span className="font-medium uppercase">Undgå relationelle misforståelser</span>
                <ul>
               <li className="ol">Afsender garanterer ikke at relationen vil være uafbrudt eller fejlfri, og du accepterer at afsender fra tid til anden kan tilbagetrække kontakt i en ubestemt tidsperiode eller ophøre forholdet helt eller delvist på ethvert tidspunkt, hvor det er nødvendigt for at beskytte afsenders interesser.</li>
               <li className="ol">Du accepterer udtrykkeligt, at din deltagelse eller manglende deltagelse i relationen sker på egen risiko. Afsender leveres “som de er” og “som de er tilgængelige” uden garantier for tilfredsstillende kvalitet og egnethed til et bestemt formål. Afsender garanterer ikke at opfylde krav eller være fri for fejl, og fraskriver sig ethvert ansvar i forbindelse hermed.</li>

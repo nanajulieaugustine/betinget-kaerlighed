@@ -70,23 +70,24 @@ if (isRequired && !value) {
 
   return (
     <>
-      <div
-        onClick={setClosing}
-        className="fixed inset-0 backdrop-blur-md z-40"
-        aria-hidden="true"
-      />
-
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={closing ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.5 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      onAnimationComplete={() => {
-        if (closing) onClose();
-      }}
-      className="fixed top-50 left-130 z-100 rounded-4xl h-100 w-100 flex flex-col p-10 items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-lg"
-      onClick={(e) => e.stopPropagation()}
-    >  
+      <div className="fixed inset-0 z-40">
+        <div
+          onClick={setClosing}
+          className="absolute inset-0 backdrop-blur-md"
+          aria-hidden="true"
+        />
+        <div className="relative h-full w-full">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={closing ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            onAnimationComplete={() => {
+              if (closing) onClose();
+            }}
+            className="absolute left-1/2 top-1/2 z-50 h-100 w-100 max-h-[90vh] max-w-[90vw] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-4xl p-10 flex flex-col items-center justify-center backdrop-blur-md inset-shadow-sm inset-shadow-amber-50 shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >  
     {isAccepted ?
     <IoIosClose
         onClick={(e) => {
@@ -154,10 +155,12 @@ if (isRequired && !value) {
           }
           .animate-shake { animation: shake 0.3s; }
           `}</style>
-    </motion.div>
+          </motion.div>
+        </div>
+      </div>
 
-          {/* Robot håndteres af parent via onSuccess */}
-          </>
+      {/* Robot håndteres af parent via onSuccess */}
+    </>
   );
 }
 
