@@ -21,9 +21,6 @@ const Fortrydelsesret = () => {
            
           buttonText="Indsend"
             />
-            <h2>Ændringer eller rettelser</h2>
-            <p>Hvis du ikke accepterer en ændring af vilkårene, skal du straks stoppe al adgang til afsender. Din fortsatte deltagelse i relationen efter enhver modifikation af vilkårene vil blive anset for din accept af vilkårene i modificeret form.
-            </p>
           </article>
         </section>
       </main>

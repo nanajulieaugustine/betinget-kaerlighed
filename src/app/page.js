@@ -36,6 +36,9 @@ export default function Home() {
               <li className="ol">Du accepterer udtrykkeligt, at din deltagelse eller manglende deltagelse i relationen sker på egen risiko. Afsender leveres “som de er” og “som de er tilgængelige” uden garantier for tilfredsstillende kvalitet og egnethed til et bestemt formål. Afsender garanterer ikke at opfylde krav eller være fri for fejl, og fraskriver sig ethvert ansvar i forbindelse hermed.</li>
               <li className="ol">Relationen kan kun opretholdes med succes ved fuld transparens mellem begge parter. Afsender garanterer dog ikke succes og tilpasninger kan forekomme.</li >
             </ul>
+             <h2>Ændringer eller rettelser</h2>
+            <p>Hvis du ikke accepterer en ændring af vilkårene, skal du straks stoppe al adgang til afsender. Din fortsatte deltagelse i relationen efter enhver modifikation af vilkårene vil blive anset for din accept af vilkårene i modificeret form.
+            </p>
           </article>
         </section>
       </main>
